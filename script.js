@@ -1,13 +1,3 @@
-// Verificar si hay una sesión activa al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
-    
-    // Si no hay usuario y estamos en la página principal, mandarlo al login
-    if (!usuarioLogueado && window.location.pathname.includes('index.html')) {
-        window.location.href = 'login.html';
-    }
-});
-
 // 1. Variables Globales
 const cartModal = document.getElementById('cart-modal');
 const cartItemsContainer = document.getElementById('cart-items');
