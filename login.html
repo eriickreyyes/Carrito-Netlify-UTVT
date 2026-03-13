@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - UTVT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container { max-width: 400px; margin: 100px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-auth { width: 100%; padding: 10px; background: #1b5e20; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body style="background-color: #f4f4f4;">
+    <div class="auth-container">
+        <img src="https://www.utvt.edu.mx/wp-content/uploads/2022/05/logo-utvt.png" width="150" style="filter: brightness(0);">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Correo" required>
+            <input type="password" id="login-password" placeholder="Contraseña" required>
+            <button type="submit" class="btn-auth">Ingresar</button>
+        </form>
+        <p>¿No tienes cuenta? <a href="signup.html">Regístrate</a></p>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-password').value;
+
+            // Obtenemos el usuario que guardamos en signup
+            const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+
+            if (usuarioGuardado && usuarioGuardado.email === email && usuarioGuardado.password === pass) {
+                // Si coinciden, creamos la "sesión activa"
+                localStorage.setItem('usuarioLogueado', usuarioGuardado.name);
+                window.location.href = 'index.html';
+            } else {
+                alert('Correo o contraseña incorrectos');
+            }
+        });
+    </script>
+</body>
+</html>

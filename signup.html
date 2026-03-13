@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - UTVT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo rápido para centrar el formulario */
+        .auth-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-auth { width: 100%; padding: 10px; background: #1b5e20; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body style="background-color: #f4f4f4;">
+    <div class="auth-container">
+        <img src="https://www.utvt.edu.mx/wp-content/uploads/2022/05/logo-utvt.png" width="150" style="filter: brightness(0);">
+        <h2>Crear Cuenta</h2>
+        <form id="signup-form">
+            <input type="text" id="signup-name" placeholder="Nombre completo" required>
+            <input type="email" id="signup-email" placeholder="Correo electrónico" required>
+            <input type="password" id="signup-password" placeholder="Contraseña" required>
+            <button type="submit" class="btn-auth">Registrarse</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            // Guardamos el objeto usuario en LocalStorage
+            const usuario = { name, email, password };
+            localStorage.setItem('usuarioRegistrado', JSON.stringify(usuario));
+            
+            alert('Registro exitoso. Ahora inicia sesión.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

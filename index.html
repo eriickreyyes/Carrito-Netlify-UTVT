@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTVT - Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <img src="cuervo.jpg" alt="Logo UTVT" class="logo">
+            <div class="search-bar">
+                <input type="text" placeholder="¿Que te gustaría Aprender?">
+                <button><i class='bx bx-search'></i></button>
+            </div>
+            <div class="user-actions">
+                <span id="user-name">Invitado</span>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class='bx bx-cart'></i>
+                    <span id="cart-count">0</span>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Aprende algo nuevo</h1>
+            <p>Todos los cursos a $15 USD</p>
+        </section>
+
+        <section class="courses-grid" id="lista-cursos">
+            <div class="card">
+                <img src="curso.png" alt="Curso">
+                <h3>HTML5, CSS3, JavaScript para Principiantes</h3>
+                <p class="instructor">Juan Pedro</p>
+                <p class="price">$200 <span>$15</span></p>
+                <button class="add-btn" data-id="1">AGREGAR AL CARRITO</button>
+            </div>
+            </section>
+    </main>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="cart-total">0</span></p>
+            <button onclick="vaciarCarrito()">VACIAR CARRITO</button>
+            <button onclick="toggleCart()">CERRAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
